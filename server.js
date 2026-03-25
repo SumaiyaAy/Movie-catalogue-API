@@ -4,12 +4,15 @@ const movies = require('./movies')
 const actors = require('./actors')
 
 app.use(express.static('client'));
+app.use(express.json())
 
 app.get('/movies', function(req,resp) {
     resp.json(movies)
 })
 
-
+app.get('/actors', function(res, resp) {
+    resp.send(actors)
+})
 
 
 
@@ -26,8 +29,13 @@ app.get('/movies/search', function(req,resp){
 
 
 
-
-
+app.post("/movies/new", function(req, resp){
+    console.log("adding new movie", req.body);
+    let new_movie = req.body;
+    new_movie.id = movies.length + 1;
+    movies.push(new_movie);
+    resp.send(movies);
+  });
 
 
 
@@ -52,6 +60,7 @@ app.get('/actors/:id', function(req, resp) {
     let actor = actors.find(f => f.id ==id)
     resp.send(actor)
 })
+
 
 
 

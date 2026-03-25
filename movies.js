@@ -4,7 +4,8 @@ const movies = [
     title: "Inception",
     releaseYear: 2010,
     genre: "Sci-Fi",
-    actorIds: [1,4]
+    actorIds: [1,4],
+    imageURL: "/images/inception.png"
   },
 
   {
@@ -12,7 +13,8 @@ const movies = [
     title: "Interstellar",
     releaseYear: 2014,
     genre: "Sci-Fi",
-    actorIds: [3,8]
+    actorIds: [3,8],
+    imageURL: "/images/interstellar.png"
   },
 
   {
@@ -20,7 +22,8 @@ const movies = [
     title: "Iron Man",
     releaseYear: 2008,
     genre: "Sci-Fi",
-    actorsIds: [6]
+    actorIds: [6],
+    imageURL: "/images/ironman.png"
   },
 
   {
@@ -28,7 +31,8 @@ const movies = [
     title: "The Martian",
     releaseYear: 2015,
     genre: "Sci-Fi",
-    actorsIds: [8]
+    actorIds: [8],
+    imageURL: "/images/themartian.png"
   },
 
   {
@@ -36,7 +40,8 @@ const movies = [
     title: "Harry Potter and the philosopher's stone",
     releaseYear: [2001],
     genre: "Fantasy",
-    actorIds: [2]
+    actorIds: [2],
+    imageURL: "/images/hp.png"
   },
 
   {
@@ -44,7 +49,8 @@ const movies = [
     title: "Beauty and the beast",
     releaseYear: 2017,
     genre: "Fantasy" ,
-    actorIds: [2]
+    actorIds: [2],
+    imageURL: "/images/beauty.png"
   },
 
   {
@@ -52,7 +58,8 @@ const movies = [
     title: "Alice in Wonderland",
     releaseYear: 2010,
     genre: "Fantasy" ,
-    actorIds: [3,9]
+    actorIds: [3,9],
+    imageURL: "/images/alice.png"
   },
 
   {
@@ -60,7 +67,8 @@ const movies = [
     title: "Charlie and the Chocolate Factory",
     releaseYear: 2005,
     genre: "Fantasy" ,
-    actorIds: [9]
+    actorIds: [9],
+    imageURL: "/images/charlie.png"
   },
 
   {
@@ -68,7 +76,8 @@ const movies = [
     title: "Titanic",
     releaseYear: 1997,
     genre: "Drama",
-    actorIds: [1]
+    actorIds: [1],
+    imageURL: "/images/titanic.png"
   },
 
   {
@@ -76,7 +85,8 @@ const movies = [
     title: "Little women",
     releaseYear: 2019,
     genre: 'Drama',
-    actorIds: [2]
+    actorIds: [2],
+    imageURL: "/images/littlewomen.png"
   },
 
   {
@@ -84,7 +94,8 @@ const movies = [
     title: "Oppenheimer",
     releaseYear: 2023,
     genre: "Drama",
-    actorIds: [4,6,7]
+    actorIds: [4,6,7],
+    imageURL: "/images/oppen.png"
   },
 
   {
@@ -92,7 +103,8 @@ const movies = [
     title: "The Devil Wears Prada",
     releaseYear: 2006,
     genre: "Drama" ,
-    actorIds: [3,7]
+    actorIds: [3,7],
+    imageURL: "/images/prada.png"
   },
 
   {
@@ -100,7 +112,8 @@ const movies = [
     title: "The Notebook",
     releaseYear: 2004,
     genre: "Romance" ,
-    actorIds: [5]
+    actorIds: [5],
+    imageURL: "/images/notebook.png"
   },
 
   {
@@ -108,7 +121,8 @@ const movies = [
     title: "LaLa Land",
     releaseYear: 2016,
     genre: "Romance" ,
-    actorIds: [5]
+    actorIds: [5],
+    imageURL: "/images/lala.png"
   },
 
   {
@@ -116,7 +130,8 @@ const movies = [
     title: "Romeo + Juliet",
     releaseYear: 1996,
     genre: "Romance" ,
-    actorIds: [1]
+    actorIds: [1],
+    imageURL: "/images/romeo.png"
   },
 
   {
@@ -124,7 +139,8 @@ const movies = [
     title: "Crazy, Stupid, Love",
     releaseYear: 2011,
     genre: "Romance" ,
-    actorIds: [5]
+    actorIds: [5],
+    imageURL: "/images/crazy.png"
   }
 
 ]

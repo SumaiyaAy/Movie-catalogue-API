@@ -10,14 +10,16 @@ function displayMovies(movieList){
     movieGrid.innerHTML = ""
   
     for(let movie of JSON.parse(movieList)){
+    console.log(movie.title, movie.imageURL)
       let movieString = `
         <div class="col">
           <div class="card shadow-sm">
-            <div class="card-body">
-              <h5 class="card-title">${movie.title}</h5>
-              <p class="card-text">Genre: ${movie.genre}</p>
-              <p class="card-text">Release Year: ${movie.releaseYear}</p>
-            </div>
+            <img src="${movie.imageURL}">
+                <div class="card-body">
+                    <h5 class="card-title">${movie.title}</h5>
+                    <p class="card-text">Genre: ${movie.genre}</p>
+                    <p class="card-text">Release Year: ${movie.releaseYear}</p>
+                </div>
           </div>
         </div>
       `
@@ -26,11 +28,37 @@ function displayMovies(movieList){
     }
   }
   
-  window.addEventListener("DOMContentLoaded", async function(event){
+
+function displayActors(actorList){
+    let actorlist = document.getElementById("actor-list")
+    if(!actorlist){
+      return;
+    }
+  
+    actorlist.innerHTML = ""
+  
+    for(let actor of JSON.parse(actorList)){
+      let actorHTML = `
+        <div onclick="selectActor(${actor.id})" style="cursor:pointer; margin-bottom:8px;">
+          ${actor.name}
+        </div>
+      `
+      actorlist.innerHTML += actorHTML
+    }
+  }
+
+window.addEventListener("DOMContentLoaded", async function(event){
     let movieResponse = await fetch('http://127.0.0.1:8090/movies')
     let movieList = await movieResponse.text()
     displayMovies(movieList)
+
+    let actorResponse = await fetch('http://127.0.0.1:8090/actors')
+    let actorList = await actorResponse.text()
+    displayActors(actorList)
   })
+
+
+
 
 
 
@@ -61,6 +89,60 @@ function displayMovies(movieList){
     })
   }
 
-  
+
+const movie_form = document.getElementById('movie_form');
+
+if (movie_form) {
+  movie_form.addEventListener('submit', async function (event) {
+    event.preventDefault();
+
+    let new_movie = {
+      title: document.getElementById('title').value,
+      genre: document.getElementById('genre').value,
+      releaseYear: document.getElementById('releaseYear').value,
+      imageURL: document.getElementById('imageURL').value
+    };
+
+    let response = await fetch('http://127.0.0.1:8090/movies/new', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(new_movie)
+    });
+
+    let updatedResponse = await fetch('http://127.0.0.1:8090/movies')
+    let updatedMovies = await updatedResponse.text()
+    displayMovies(updatedMovies)
+  });
+}
+
+
+
   
 
+  
+
+
+  async function selectActor(id){
+    let response = await fetch(`http://127.0.0.1:8090/actors/${id}`)
+    let actor = await response.text()
+    actor = JSON.parse(actor)
+  
+
+  
+    let actorMovies = actor.movieIds
+  
+    let movieResponse = await fetch('http://127.0.0.1:8090/movies')
+    let movieList = await movieResponse.text()
+    let movies = JSON.parse(movieList)
+  
+  
+    let filtered = movies.filter(function(m) {
+      return actorMovies.includes(m.id)
+    })
+  
+
+  
+    displayMovies(JSON.stringify(filtered))
+  }
