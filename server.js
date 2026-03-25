@@ -9,6 +9,29 @@ app.get('/movies', function(req,resp) {
     resp.json(movies)
 })
 
+
+
+
+
+app.get('/movies/search', function(req,resp){
+    console.log("searching for movies")
+    let search_term = req.query.search_term
+    if(!search_term){
+      resp.status(400).send('no search term specified')
+      return
+    }
+    let results = movies.filter(item => item.title.toLowerCase().includes(search_term.toLowerCase()))
+    resp.send(results)
+  })
+
+
+
+
+
+
+
+
+
 app.get('/movies/:id', function(req, resp) {
     let id = req.params.id
     console.log("Getting an individual movie " + id)
