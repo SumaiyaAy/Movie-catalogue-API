@@ -31,3 +31,36 @@ function displayMovies(movieList){
     let movieList = await movieResponse.text()
     displayMovies(movieList)
   })
+
+
+
+  const search_form = document.getElementById("search_form")
+
+
+  if (search_form) {
+    search_form.addEventListener("input", async function (event) {
+      const search_box = document.getElementById('search_term')
+      let search_term = search_box.value
+
+      if(search_term === ""){
+        let response = await fetch('http://127.0.0.1:8090/movies')
+        let movieList = await response.text()
+        displayMovies(movieList)
+        return
+      }
+
+
+      let response = await fetch(`http://127.0.0.1:8090/movies/search?search_term=${search_term}`)
+      let movieList = await response.text()
+      displayMovies(movieList)
+    })
+  
+  
+    search_form.addEventListener('submit', function (event) {
+      event.preventDefault();
+    })
+  }
+
+  
+  
+
