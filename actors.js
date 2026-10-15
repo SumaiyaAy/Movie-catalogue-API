@@ -43,7 +43,7 @@ const actors = [
 
     {
       id: 8,
-      name: "Matt damon",
+      name: "Matt Damon",
       movieIds: [2,4]
     },
 
@@ -51,6 +51,12 @@ const actors = [
       id: 9,
       name: "Johnny Depp",
       movieIds: [7,8]
+    },
+
+    {
+      id: 10,
+      name: 'All Actors',
+      movieIds: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
     }
 
 
